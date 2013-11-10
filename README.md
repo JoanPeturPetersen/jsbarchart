@@ -1,0 +1,4 @@
+jsbarchart
+==========
+
+Javascript bar chart
