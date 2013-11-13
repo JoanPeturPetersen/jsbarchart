@@ -10,6 +10,17 @@
   <body onLoad="init();" style="background:#fafafa">
     <h1>Bar chart</h1>
     <canvas id="bar" width="550" height="200"></canvas>
+    <br>
+    <canvas id="bar2" width="550" height="200"></canvas>
   </body>
+
+  <script>
+    function init() {
+        canvas = document.getElementById('bar');
+        plot_bar(canvas, [1, 5, 2, 3]);
+        canvas2 = document.getElementById('bar2');
+        plot_bar(canvas2, [1, -5, 2, -3]);
+    }
+  </script>
 
 </html>
