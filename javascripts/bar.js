@@ -1,8 +1,4 @@
 
-function init() {
-    canvas = document.getElementById('bar');
-    plot_bar(canvas, [1, 5, 2, 3]);
-}
 
 
 function draw_axis(canvas, padding, ticks) {
@@ -52,6 +48,10 @@ function draw_bars(canvas, data, dataplotmin, dataplotmax, padding) {
         h = (data[i]/(dataplotmax-dataplotmin)) * bars_h;
         context.fillRect(padding + bar_w*i, h0+padding, bar_w, -h);
     }
+    context.stroke();
+    context.beginPath();
+    context.moveTo(padding, h0 + padding);
+    context.lineTo(canvas.width-padding, h0 + padding);  
     context.stroke();
 }
 

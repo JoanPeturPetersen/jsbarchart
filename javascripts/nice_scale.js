@@ -92,7 +92,7 @@ function NiceScale(minPoint, maxPoint) {
     N = (this.niceMax - this.niceMin) / this.tickSpacing + 1;
     var ticks = new Array();
     for(var i=0; i<N; i++)
-        ticks[i] = this.minPoint + i*this.tickSpacing;
+        ticks[i] = this.niceMin + i*this.tickSpacing;
     return ticks;
   };
 
