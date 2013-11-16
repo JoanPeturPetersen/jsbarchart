@@ -9,17 +9,19 @@
 
   <body onLoad="init();" style="background:#fafafa">
     <h1>Bar chart</h1>
-    <canvas id="bar" width="550" height="200"></canvas>
+    <canvas id="bar1" width="550" height="200"></canvas>
     <br>
     <canvas id="bar2" width="550" height="200"></canvas>
   </body>
 
   <script>
     function init() {
-        canvas = document.getElementById('bar');
-        plot_bar(canvas, [1, 5, 2, 3]);
-        canvas2 = document.getElementById('bar2');
-        plot_bar(canvas2, [1, -5, 2, -3]);
+        canvas1 = document.getElementById('bar1');
+	barchart1 = new BarChart(canvas1, [1, 5, 2, 3]);
+	barchart1.set_labels(['eric', 'kyle', 'stan', 'kenny']);
+	barchart1.draw();
+        //canvas2 = document.getElementById('bar2');
+        //plot_bar(canvas2, [1, -5, 2, -3]);
     }
   </script>
 
