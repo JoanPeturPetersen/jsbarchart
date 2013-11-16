@@ -46,6 +46,18 @@ BarChart.prototype.draw_axis = function draw_axis(canvas, padding, ticks) {
     context.stroke();
 }
 
+BarChart.prototype.draw_ylabel = function draw_ylabel(canvas, text, padding) {
+    context.save();
+    context = canvas.getContext('2d');   
+    context.translate(0, canvas.height/2);
+    context.rotate(-Math.PI / 2);
+    context.textBaseline = 'top';
+    context.textAlign = 'center';
+    context.fillStyle = '#000';
+    context.fillText(text, 0, 0);
+    context.restore();
+}
+
 BarChart.prototype.draw_bars = 
   function draw_bars(canvas, data, dataplotmin, dataplotmax, padding) {
     // dataplotmax gives the highest data value on the plot (the top of
@@ -96,4 +108,5 @@ BarChart.prototype.draw = function draw() {
     var padding = 20;
     this.draw_axis(canvas, padding, niceScale.getTicks());
     this.draw_bars(canvas, data, niceScale.niceMin, niceScale.niceMax, padding);
+    this.draw_ylabel(canvas, 'minutes', padding);
 }
