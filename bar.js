@@ -3,7 +3,6 @@ function BarChart(canvas, data) {
     this.canvas = canvas;
     this.data = data;
     this.labels = [];
-    this.label_font = "14px Arial";
     this.label_textAlign = "center";
     this.label_textBaseLine = "bottom";
     this.label_fillStyle = "#000";
@@ -13,19 +12,23 @@ function BarChart(canvas, data) {
     this.grid_style = "rgba(150, 150, 150, 0.5)";
 
     // Y label:
-    this.ylabel_angle = 0;
-    this.ylabel_textBaseline = 'middle';
-    this.ylabel_textAlign = 'center'; 
+    this.ylabel_font = "14px Arial";
+
+    // X label:
+    this.xlabel_font = "48px Arial";
+    this.xlabel_angle = 0;
+    this.xlabel_textBaseline = 'middle';
+    this.xlabel_textAlign = 'center'; 
 }
 
 BarChart.prototype.set_labels = function set_labels(labels) {
     this.labels = labels;
 }
 
-BarChart.prototype.set_vertical_ylabels = function set_vertical_ylabels() {
-    this.ylabel_angle = -Math.PI / 2;
-    this.ylabel_textBaseline = 'top';
-    this.ylabel_textAlign = 'left';      
+BarChart.prototype.set_vertical_xlabels = function set_vertical_xlabels() {
+    this.xlabel_angle = -Math.PI / 2;
+    this.xlabel_textBaseline = 'center';
+    this.xlabel_textAlign = 'left';      
 }
 
 BarChart.prototype.draw_axis = function draw_axis(canvas, padding, ticks) {
@@ -69,9 +72,10 @@ BarChart.prototype.draw_axis = function draw_axis(canvas, padding, ticks) {
         }
 }
 
-BarChart.prototype.draw_ylabel = function draw_ylabel(canvas, text, padding) {
+BarChart.prototype.draw_xlabel = function draw_ylabel(canvas, text, padding) {
     context.save();
     context = canvas.getContext('2d');   
+    context.font = this.ylabel_font;
     context.translate(0, canvas.height/2);
     context.rotate(-Math.PI/2);
     context.textBaseline = 'top';
@@ -105,16 +109,16 @@ BarChart.prototype.draw_bars =
     // Draw labels:
     context.textAlign = this.label_textAlign;
     context.textBaseline = this.label_textBaseline;
-    context.font = this.label_font;
+    context.font = this.xlabel_font;
     context.fillStyle = this.label_fillStyle;
     for(var i=0; i<this.labels.length; i++) {
         context.beginPath();
         context.save();
-        context.textAlign = this.ylabel_textAlign;
-        context.textBaseline = this.ylabel_textBaseline;
+        context.textAlign = this.xlabel_textAlign;
+        context.textBaseline = this.xlabel_textBaseline;
         context.translate(padding + bar_w*i + bar_w/2,
                 h0 + padding - this.label_padding);
-        context.rotate(this.ylabel_angle); // -Math.PI/2); 
+        context.rotate(this.xlabel_angle); // -Math.PI/2); 
         context.fillText(this.labels[i], 0, 0);
         context.restore();
         context.stroke();
@@ -135,5 +139,5 @@ BarChart.prototype.draw = function draw() {
     var padding = 20;
     this.draw_axis(canvas, padding, niceScale.getTicks());
     this.draw_bars(canvas, data, niceScale.niceMin, niceScale.niceMax, padding);
-    this.draw_ylabel(canvas, 'minutes', padding);
+    this.draw_xlabel(canvas, 'minutes', padding);
 }
