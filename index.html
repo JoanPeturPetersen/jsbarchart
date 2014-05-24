@@ -41,7 +41,8 @@ $ git checkout gh-pages
 </code></pre> -->
 
 <canvas id="bar" width="300" height="200"></canvas><br>
-<canvas id="bar2" width="300" height="200"></canvas>
+<canvas id="bar2" width="300" height="200"></canvas><br>
+<canvas id="bar3" width="300" height="200"></canvas><br>
     <script src="javascripts/scale.fix.js"></script>
     <script>
       function init() {
@@ -49,6 +50,8 @@ $ git checkout gh-pages
           plot_bar(canvas, [1, 5, 2, 3]);
           canvas2 = document.getElementById('bar2');
           plot_bar(canvas2, [1, -5, 2, -3]);
+          canvas2 = document.getElementById('bar3');
+          plot_bar(canvas2, [1, 5, 2, 3]);          
       }    
     </script>
     </section>
