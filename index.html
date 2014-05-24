@@ -40,18 +40,23 @@ $ git fetch origin
 $ git checkout gh-pages
 </code></pre> -->
 
-<canvas id="bar" width="300" height="200"></canvas><br>
+<canvas id="bar1" width="300" height="200"></canvas><br>
 <canvas id="bar2" width="300" height="200"></canvas><br>
 <canvas id="bar3" width="300" height="200"></canvas><br>
     <script src="javascripts/scale.fix.js"></script>
     <script>
       function init() {
-          canvas = document.getElementById('bar');
-          plot_bar(canvas, [1, 5, 2, 3]);
+          canvas1 = document.getElementById('bar1');
+          barchart1 = new BarChart(canvas1, [1, 5, 2, 3]);
+          barchart1.draw();  
           canvas2 = document.getElementById('bar2');
-          plot_bar(canvas2, [1, -5, 2, -3]);
-          canvas2 = document.getElementById('bar3');
-          plot_bar(canvas2, [1, 5, 2, 3]);          
+          barchart2 = new BarChart(canvas2, [1, -5, 2, -3]);
+          barchart2.draw(); 
+          canvas3 = document.getElementById('bar3');
+	  barchart3 = new BarChart(canvas3, [1, 5, 2, 3]);
+          barchart3.set_labels(['eric', 'kyle', 'stan', 'kenny']);
+          barchart3.set_vertical_xlabels();
+          barchart3.draw();          
       }    
     </script>
     </section>
