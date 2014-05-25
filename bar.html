@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Bar chart</title>
+    <meta charset="utf-8" />
+    <script src="javascripts/nice_scale.js"></script>
+    <script src="javascripts/bar.js"></script>
+  </head>
+
+  <body onLoad="init();" style="background:#fafafa">
+    <h1>Bar chart</h1>
+    <canvas id="bar1" width="550" height="200"></canvas>
+    <br>
+    <canvas id="bar2" width="550" height="200"></canvas>
+  </body>
+
+  <script>
+    function init() {
+        canvas1 = document.getElementById('bar1');
+	barchart1 = new BarChart(canvas1, [1, 5, 2, 3]);
+	barchart1.set_labels(['eric', 'kyle', 'stan', 'kenny']);
+	barchart1.set_vertical_xlabels();
+	barchart1.draw();
+        //canvas2 = document.getElementById('bar2');
+        //plot_bar(canvas2, [1, -5, 2, -3]);
+    }
+  </script>
+
+</html>
