@@ -1,4 +1,10 @@
 
+/**
+* A simple bar chart.
+*
+* @class BarChart
+* @constructor
+*/
 function BarChart(canvas, data) {
     this.canvas = canvas;
     this.data = data;
