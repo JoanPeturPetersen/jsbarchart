@@ -13,6 +13,7 @@ function BarChart(canvas, data) {
 
     // Y label:
     this.ylabel_font = "14px Arial";
+    this.ylabel = "";
 
     // X label:
     this.xlabel_font = "48px Arial";
@@ -72,7 +73,7 @@ BarChart.prototype.draw_axis = function draw_axis(canvas, padding, ticks) {
         }
 }
 
-BarChart.prototype.draw_xlabel = function draw_ylabel(canvas, text, padding) {
+BarChart.prototype.draw_ylabel = function draw_ylabel(canvas, text, padding) {
     context.save();
     context = canvas.getContext('2d');   
     context.font = this.ylabel_font;
@@ -139,5 +140,5 @@ BarChart.prototype.draw = function draw() {
     var padding = 20;
     this.draw_axis(canvas, padding, niceScale.getTicks());
     this.draw_bars(canvas, data, niceScale.niceMin, niceScale.niceMax, padding);
-    this.draw_xlabel(canvas, 'minutes', padding);
+    this.draw_ylabel(canvas, this.ylabel, padding);
 }

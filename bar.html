@@ -18,6 +18,7 @@
     function init() {
         canvas1 = document.getElementById('bar1');
 	barchart1 = new BarChart(canvas1, [1, 5, 2, 3]);
+        barchart1.ylabel = "minutes";  // Make property
 	barchart1.set_labels(['eric', 'kyle', 'stan', 'kenny']);
 	barchart1.set_vertical_xlabels();
 	barchart1.draw();

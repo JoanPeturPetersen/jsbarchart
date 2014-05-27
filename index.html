@@ -54,6 +54,7 @@ $ git checkout gh-pages
           barchart2.draw(); 
           canvas3 = document.getElementById('bar3');
 	  barchart3 = new BarChart(canvas3, [1, 5, 2, 3]);
+          barchart3.ylabel = "minutes";
           barchart3.set_labels(['eric', 'kyle', 'stan', 'kenny']);
           barchart3.set_vertical_xlabels();
           barchart3.draw();          
